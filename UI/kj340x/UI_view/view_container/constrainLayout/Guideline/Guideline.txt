@@ -1,0 +1,5 @@
+Guideline只能用于ConstraintLayout中，仅仅用于辅助布局,别的控件利用他进行定位。 
+定位Guideline有三种方式： 
+* 指定距离左侧或顶部的固定距离（layout_constraintGuide_begin） 
+* 指定距离右侧或底部的固定距离（layout_constraintGuide_end） 
+* 指定在父控件中的宽度或高度的百分比（layout_constraintGuide_percent）

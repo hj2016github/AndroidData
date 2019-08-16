@@ -1,0 +1,1 @@
+老的安卓项目就用老的androidStudio,升级后不要删除旧的androidstudio,新的as打开旧的代价会非常昂贵,很有可能打不开;

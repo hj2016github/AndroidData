@@ -1,0 +1,2 @@
+需要读Picasso的源码
+学会使用glide,比较picasso

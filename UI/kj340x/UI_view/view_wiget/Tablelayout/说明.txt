@@ -1,0 +1,21 @@
+如果我们直接往TableLayout中添加组件的话,那么这个组件将占满一行;
+
+如果我们想一行上有多个组件的话,就要添加一个TableRow的容器,把组件都放入;
+tableRow代表一行,一个组件代表一列;
+
+tablerow中的组件个数就决定了该行有多少列,而列的宽度由该列中最宽的单元格决定;
+
+tablerow的layout_width属性,默认是match_parent的,我们自己设置成其他的值也不会生效;
+
+整个表格布局的宽度取决于父容器的宽度(占满父容器本身);
+
+有多少行就要自己数啦,一个tablerow一行,一个单独的组件也一行！多少列则是看tableRow中 的组件个数,组件最多的就是TableLayout的列数;
+
+三个常用属性
+android:collapseColumns:设置需要被隐藏的列的序号
+android:shrinkColumns:设置允许被收缩的列的列序号
+android:stretchColumns:设置运行被拉伸的列的列序号
+以上这三个属性的列号都是从0开始算的,shrinkColunmns = "2",对应的是第三列;
+
+android:layout_column="2":表示的就是跳过第二个,直接显示到第三列处;
+android:layout_span="4":表示合并4个单元格,也就说这个组件占4列;

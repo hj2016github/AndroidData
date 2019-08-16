@@ -1,0 +1,44 @@
+1,在清单中添加权限--可以安装的权限;
+
+app/src/main/AndroidManifest.xml
+<provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.okhttpdownload"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepath"/>
+</provider>
+
+
+
+
+xml/filepath.xml
+<?xml version="1.0" encoding="utf-8"?>
+<paths xmlns:android="http://schemas.android.com/apk/res/android">
+    <root-path name="myRootPath" path=""  />
+    <files-path name="FilesDir" path="." />
+    <cache-path name="CacheDir" path="." />
+    <external-path name="ExternalStorageDirectory" path="." />
+    <external-files-path name="ExternalFilesDir" path="path" />
+    <external-cache-path name="ExternalCacheDir" path="path" />
+</paths>
+
+
+
+
+com.gehj.okhttp_netframe.MainActivity
+private void installApk(File file) {
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Uri uri =null;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            uri  = FileProvider.getUriForFile(this, BuildConfig.APPLICATION_ID+".okhttpdownload", file);
+            intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        } else {
+            uri =  Uri.fromFile(file);
+        }
+        intent.setDataAndType(uri,"application/vnd.android.package-archive");
+        startActivity(intent);
+    }

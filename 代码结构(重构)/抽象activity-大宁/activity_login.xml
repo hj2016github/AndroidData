@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg"
+    tools:context=".LoginActivity">
+
+<!-- 总体设计思路:头部不设置成死的dp,怕不同手机偏上或者偏下,用guidline的百分比对imageView进行
+定位,从而保证不同手机的适配; -->
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="79.1dp"
+        android:layout_height="69.8dp"
+        android:src="@drawable/login_rhead"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"  //左右平衡,在中间,其他view依赖于他,保证适配居中  
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline" />
+
+    <com.ygsj.daningwaag.ui.StrokeTextView //自定义textview,有描边的效果,描边白色字体微软黑雅
+        android:id="@+id/textView"
+        android:layout_width="220dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="14dp"
+        android:gravity="center"
+        android:text="华润大宁洗煤厂自动过磅系统"
+        android:textColor="@color/blue" //里面的字是蓝色
+        android:textSize="16dp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imageView2"
+        app:layout_constraintStart_toStartOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Automatic weighting system"
+        android:textColor="@color/white"
+        android:textSize="14dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView"
+        app:layout_constraintStart_toStartOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52.7dp"
+        android:drawableLeft="@drawable/user_18" //在用户名左边的图标(用ps调整图片大小,否则需要在代码中进行调节)
+        android:drawablePadding="8dp"
+        android:ems="10" //能显示10个字符
+        android:hint="用户名"
+        android:inputType="textPersonName"
+        android:textColor="@color/white" //输入字体是白色
+        android:textColorHint="@color/white" //hint的颜色
+        android:textCursorDrawable="@null" //关闭颜色
+        android:textSize="14dp"
+        android:theme="@style/EditTextTheme" //在style中定义了下划线的颜色
+        app:layout_constraintEnd_toEndOf="@+id/textView2"
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+    <EditText
+        android:id="@+id/et_pwd"
+        android:layout_width="243dp"
+        android:layout_height="wrap_content"
+        android:drawableLeft="@drawable/pwd_18"
+        android:drawablePadding="8dp"
+        android:ems="10"
+        android:hint="密码"
+        android:inputType="textPassword" //显示出...的形式
+        android:textColor="@color/white"
+        android:textColorHint="@color/white"
+        android:textCursorDrawable="@null"
+        android:textSize="14dp"
+        android:theme="@style/EditTextTheme"
+        app:layout_constraintEnd_toEndOf="@+id/et_username"
+        app:layout_constraintStart_toStartOf="@+id/et_username"
+        app:layout_constraintTop_toBottomOf="@+id/et_username" />
+
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="243dp"
+        android:layout_height="26dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/bluetrans" //颜色透明
+        android:text="登录"
+        android:textColor="@color/white" 
+        android:textSize="14dp"
+        android:textStyle="bold" //字体加粗
+        android:onClick="click_login" //点击登录
+        app:layout_constraintEnd_toEndOf="@+id/et_pwd"
+        app:layout_constraintStart_toStartOf="@+id/et_pwd"
+        app:layout_constraintTop_toBottomOf="@+id/et_pwd" />
+
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" 
+        app:layout_constraintGuide_percent="0.14" //guideline的在14%的位置;
+         />
+
+</android.support.constraint.ConstraintLayout>

@@ -1,0 +1,35 @@
+switch case 与 enum的联合使用就是要解决强转的问题
+比如
+switch(object){
+case:xx类做相关处理;
+case:xx类做相关处理;
+}
+
+但这样编译无法通过;
+class Chinese{
+public void ChineseGreeting(string name){
+   Console.WriteLine("早上好, " + name);
+ }
+}
+
+class English{
+		public void EnglishGreeting(string name) {
+   Console.WriteLine("Morning, " + name);
+ }
+}
+public enum Language{
+   English, Chinese
+ }
+
+switch case应用
+public void GreetPeople(string name, Language lang){
+   //做某些额外的事情，比如初始化之类，此处略
+  swith(lang){
+     case Language.English:
+      EnglishGreeting(name);
+      break;
+    case Language.Chinese:
+      ChineseGreeting(name);
+      break;
+   }
+ }

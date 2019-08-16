@@ -1,0 +1,5 @@
+Circular positioning（圆形定位)--可以实现九大行星的效果;(用动画实现)
+//圆半径
+app:layout_constraintCircleRadius="100dp"
+//偏移圆角度  水平右方向为0逆时针方向旋转
+app:layout_constraintCircleAngle="45"

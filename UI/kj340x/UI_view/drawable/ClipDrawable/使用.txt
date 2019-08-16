@@ -1,0 +1,9 @@
+layout.xml的引用
+<ImageView
+    android:src=“@drawable/clip”/>
+
+
+activity的使用:
+ImageView iv=(ImageView)findViewById(R.id.image);
+ClipDrawable drawable=(ClipDrawable)iv.getDrawable();
+drawable.setLevel(5000);   //露出左半部分

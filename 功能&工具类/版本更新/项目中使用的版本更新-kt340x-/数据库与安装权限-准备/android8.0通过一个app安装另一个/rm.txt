@@ -1,0 +1,34 @@
+  <uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES"/><!--android8.0以上需要加-->
+
+
+
+
+
+
+
+ private void doInstallAuthority(File file) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && PackageManager.PERMISSION_GRANTED != ContextCompat.checkSelfPermission(MainActivity.this,
+                Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            ActivityCompat.requestPermissions(MainActivity.this,new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    Manifest.permission.REQUEST_INSTALL_PACKAGES}, 1);//sdk>26 android8.0以上需要有REQUEST_INSTALL_PACKAGES权限;
+            apk = file; //先传完整的file,才进行回调;
+        } else {
+            installApk(file);
+        }
+    }
+
+
+
+
+ /*回调运行时权限*/
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        switch (requestCode) {
+            case 1:
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED &&
+                        grantResults[1] == PackageManager.PERMISSION_GRANTED){
+                    installApk(apk);//回调总是在传file(完整)之后,所以apk不会空;
+                }
+                break;
+        }
+    }

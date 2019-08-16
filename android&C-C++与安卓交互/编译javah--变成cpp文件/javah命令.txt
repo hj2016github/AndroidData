@@ -1,0 +1,1 @@
+javah -jni com.ygsj.jni3.JNIMethod

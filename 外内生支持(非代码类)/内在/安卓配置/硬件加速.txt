@@ -1,0 +1,66 @@
+
+在API >= 14上，默认是开启的，如果你的应用只是标准的View和Drawable没有问题;
+如果有自定义控件或者绘画，可能会出现异常等行为;
+
+
+1,在manifest中:
+所有的activity关闭硬件加速
+<application 
+    android:hardwareAccelerated="false" 
+...>
+</application>
+2,单个activity关闭:
+<application 
+    android:hardwareAccelerated="true"> //总体开启
+    <activity ... />
+    <activity android:hardwareAccelerated="false" />//单个关闭
+</application>
+
+3,Window
+getWindow().setFlags(
+   WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED,
+   WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+
+View
+myView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+Note: 你可以关闭View级别的硬件加速，但是你不能在View级别开启硬件加速，因为它还依赖其他,比如view被attache到开启加速的windows上;
+
+两种获取是否支持硬件加速的方式
+View.isHardwareAccelerated()   //returns true if the View is attached to a hardware accelerated window.
+Canvas.isHardwareAccelerated() //returns true if the Canvas is hardware accelerated
+如果必须进行这样的验证，建议你在draw的代码块中使用：Canvas.isHardwareAccelerated()，因为如果一个View被attach到一个硬件加速的Window上，
+即使没有硬件加速的Canvas，它也是可以被绘制的。
+
+不支持的绘画操作
+当启动硬件加速, 2D渲染通道支持一般使用的画布绘画操作和一些较少使用的操作。所有的绘画操作被用于渲染程序，默认为widget和layout，还有些高级应用比如反光和纹理平铺也是被支持的。下面是不被硬件加速的操作清单：
+
+Canvas
+    * clipPath()
+    * clipRegion()
+    * drawPicture()
+    * [http://docs.eoeandroid.com/reference/android/graphics/Canvas.html#drawTextOnPathchar[](, int, int, android.graphics.Path, float, float, android.graphics.Paint) drawTextOnPath()]
+    * [http://docs.eoeandroid.com/reference/android/graphics/Canvas.html#drawVerticesandroid.graphics.Canvas.VertexMode(, int, float[], int, float[], int, int[], int, short[], int, int, android.graphics.Paint) drawVertices()]
+Paint
+    * setLinearText()
+    * setMaskFilter()
+    * setRasterizer()
+Xfermodes
+    * AvoidXfermode
+    * PixelXorXfermode
+
+
+另外, 有些操作在硬件加速开启后会发生变化:
+Canvas
+    * clipRect() : XOR, Difference and ReverseDifference clip modes are ignored. 3D transforms do not apply to the clip rectangle [http://docs.eoeandroid.com/reference/android/graphics/Canvas.html#drawBitmapMeshandroid.graphics.Bitmap(, int, int, float[], int, int[], int, android.graphics.Paint) drawBitmapMesh()] : colors array is ignored
+Paint
+   * setDither() : ignored
+   * setFilterBitmap() : filtering is always on
+   * [float, float, int) setShadowLayer()](http://docs.eoeandroid.com/reference/android/graphics/Paint.html#setShadowLayerfloat,)( : works with text only
+PorterDuffXfermode
+   * PorterDuff.Mode.DARKEN will be equivalent to SRC_OVER when blending against the framebuffer.
+   * PorterDuff.Mode.LIGHTEN will be equivalent to SRC_OVER when blending against the framebuffer.
+   * PorterDuff.Mode.OVERLAY will be equivalent to SRC_OVER when blending against the framebuffer.
+ComposeShader
+   * ComposeShader can only contain shaders of different types (a BitmapShader and a LinearGradient for instance, but not two instances of BitmapShader )
+   * ComposeShader cannot contain a ComposeShader
+如果你的应用受缺失属性和限制的影响,你可以关闭硬件加速，在你受影响的部分调用[android.graphics.Paint) setLayerType(View.LAYER_TYPE_SOFTWARE, null)](http://docs.eoeandroid.com/reference/android/view/View.html#setLayerTypeint,)( 。这个方法, 你仍可以利用硬件加速其他任一地方。查看Controlling Hardware Acceleration得到关于硬件加速的更多信息。

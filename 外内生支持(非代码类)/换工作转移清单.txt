@@ -1,0 +1,34 @@
+生活
+1,水杯
+2,卫生纸
+
+交通-->电动车充电器
+
+
+外接设备
+如果需要笔记本-->电源 鼠标
+
+新配置电脑软件
+windows-->桌面,字体设置;
+chrome-->主页,搜索,悬停等设置
+翻墙-->小飞机
+chrome插件-->ninght mode,jsonviewer
+fiddler
+翻译->小鹦鹉 
+wps
+photoshop:用管理员身份打开
+取色器
+
+
+如果需要内网-->VPN
+搜狗设置
+listeray
+腾讯安全管家-->保护,桌面整理
+
+jdk环境配置,如果有必要
+myeclipse拷贝+theme.epf
+
+android具->具体见安卓的清单;
+
+
+环境软件文件夹内的软件

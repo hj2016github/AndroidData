@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="gerren">#E9018914</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="white">#F7FFFFFF</color>
+    <color name="blue">#17a5e7</color>
+    <color name="bluetrans">#cc02397c</color>
+    <color name="textRed">#F35F5F</color>
+    <color name="hintColor">#949494</color>
+    <color name="inputColor">#02337A</color>
+    <color name="pickerview_timebtn_nor">#057dff</color>
+    <color name="mainback">#CE046EF1</color>
+    <color name="gray">#C6C6C6</color>
+    <color name="red">#CCF00A0A</color>
+    <color name="trans">#0003A9F4</color>
+    <color name="classify">#FF9800</color>
+</resources>

@@ -1,0 +1,1 @@
+当一个控件左右都约束了parent，可能会遇到左右间隔不起作用的情况，原因是androidlayout_width设置了match_parent或者wrap_content，需要改为0dp变成Match Constraint才会起作用。

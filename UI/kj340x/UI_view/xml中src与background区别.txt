@@ -1,0 +1,3 @@
+
+ImageView中XML属性src和background的区别：
+background会根据ImageView组件给定的长宽进行拉伸，而src就存放的是原图的大小，不会进行拉伸。src是图片内容（前景），bg是背景，可以同时使用。

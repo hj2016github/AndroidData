@@ -1,0 +1,6 @@
+xml中可以直接android:textColor="#000"来修改属性
+或者在style文件夹下color中修改@color/inputColor
+属性  android:textColorHint="@color/hintColor":为hint字体的颜色;
+Color(Color.parseColor("#1EA5FE"));
+getResources().getColor(R.color.white)//直接拿Color.xml中的color值;
+

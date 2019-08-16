@@ -1,0 +1,16 @@
+准备  gradle中 implementation 'com.contrarywind:Android-PickerView:4.1.4'
+1,初始化数据:
+1.1初始化的实体类需要实现接口 IPickerViewData:并把要轮轴要显示的内容写在要实现的方法中:
+@Override
+    public String getPickerViewText() {
+        return StationNumber+" "+StationPlace+" "+District;
+    }
+1.2在把实体类添加到list中:如果是动态变化可以是网络请求的json;
+   三极联动的json需要解析,有相关的demo;
+
+2,准备:显示view:如果用自定义的view就需要把他的xml拷贝进来进行设置:具体见xml;
+2.1滚轮选择的文字的处理
+2.2title点击事件是处理
+2.3相关属性的设置以及添加数据
+
+3,触发show():见截图;

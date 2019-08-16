@@ -1,0 +1,3 @@
+处理list.toArray()返回的是一个Object[],不能强转;
+Int[] t = new Int[list.size];
+应该用的方法是list.toAarry(array);//需要什么类型的转什么类型的;

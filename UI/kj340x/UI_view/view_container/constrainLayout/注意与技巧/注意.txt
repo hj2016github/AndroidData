@@ -1,0 +1,7 @@
+﻿
+
+
+
+
+layout_constraintWidth_percent and layout_constraintHeight_percent //设置相对于父类的百分比
+

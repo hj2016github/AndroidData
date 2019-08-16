@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>  
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+    android:layout_width="fill_parent"  
+    android:layout_height="fill_parent"  
+    android:orientation="vertical" >  
+    <!-- 第一部分 -->
+    <TextView  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:background="#ff0000"
+        android:text="第一个BTN" />  
+    <Button  
+        android:id="@+id/mybutton"  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text=" One Button " />  
+     
+    <!-- 第二部分 -->
+    <TextView  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:background="#00ff00"
+        android:text="第二个BTN" />  
+  
+    <Button  
+        android:id="@+id/mybutton"  
+        android:layout_width="fill_parent"  
+        android:layout_height="wrap_content"  
+        android:text=" Second Button " /> 
+        
+  <!-- 最后的按钮 -->
+  <Button  
+        android:id="@+id/another"
+        android:layout_width="wrap_content"  
+        android:layout_height="wrap_content"  
+        android:text=" Another Button " />  
+     
+</LinearLayout>

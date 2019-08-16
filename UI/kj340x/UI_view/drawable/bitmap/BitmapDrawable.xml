@@ -1,0 +1,13 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<bitmap
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:src="@drawable/ic_launche"
+    android:tileMode="mirror" 
+    android:gravity="center"
+    android:antialias="true"
+    android:dither="true"/>
+<!--
+android:antialias=“true” //抗锯齿
+android:dither=“true” //允许抖动
+-->

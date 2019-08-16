@@ -1,0 +1,53 @@
+使用教程网址:https://github.com/PhilJay/MPAndroidChart/wiki
+API:https://jitpack.io/com/github/PhilJay/MPAndroidChart/v3.0.0/javadoc/
+说明:冒号后面带数字的是使用教程后面的相关内容,API要查相关的类;
+Highlight一直没有用到,暂时没做笔记;
+KJ340x的代码仿照天气进一步封装;master是MP的源码,里面内容丰富;
+使用时候需要查看对应类的api与搜索;
+
+数据处理:7. Setting Data
+重要的几个类: Entry--> List<Entry> -->传入构造-->LineDataSet(曲线)-->List<LineDataSet>-->LineData-->LineChart
+
+
+
+对chartview的整体处理:
+图例:13. Legend
+交互:2. Interaction with the chart
+修饰view:15. Modifying the Viewport::可见范围,偏移量,中心位置,动画,放大缩小;
+动画:16. Animations::动画与动画擦除;
+
+设置与样式:
+11. General Settings & Styling
+12. Specific Settings & Styling
+
+设置颜色:
+在LineDataSet这个类上使用方法:
+8. Setting Colors
+
+点击数字后的弹框:17. MarkerView (Popup View)
+
+
+XY轴的处理:
+4. The Axis (AxisBase)
+5. XAxis
+6. YAxis
+
+
+对x/y轴进行格式化-->
+9. Formatting Data Values (ValueFormatter)
+10. Formatting Axis Values (AxisValueFormatter)
+重写MyValueFormatter implements IValueFormatter-->lineData.setValueFormatter(new MyValueFormatter());
+
+实时数据:14. Dynamic & Realtime Data
+
+其他实用的方法:
+28. Miscellaneous (more useful stuff):都是view相关的类上的方法:
+其中有:硬件加速,保存,获取图片,得到各种值,清除,
+
+
+几个比较重要的类:主要起修饰作用::
+18. The ChartData class
+19. ChartData subclasses
+20. The DataSet class (general DataSet styling)
+21. DataSet subclasses (specific DataSet styling)
+22. The ViewPortHandler:也是修饰view的可见性,缩放等,不过用不好会有问题;

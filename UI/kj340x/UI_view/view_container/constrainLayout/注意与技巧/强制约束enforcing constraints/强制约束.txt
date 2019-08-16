@@ -1,0 +1,5 @@
+强制约束:enforcing constraints
+app:layout_constrainedWidth=”true|false” //默认false
+app:layout_constrainedHeight=”true|false” //默认false
+场景:B控件被约束在A控件的右侧,当B控件的文字增多,就会逐渐超过A控件的右侧,如果加上
+app:layout_constrainedWidth=”true"则B控件就会换行;

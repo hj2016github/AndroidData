@@ -1,0 +1,5 @@
+主要有dialog,popwindow,以及activity三种形式;
+dialog android自带的形式,直接可以使用;
+popwindow用自己xml写比较复杂的弹出;
+activity的dialog样式使用可以用来网络获取--比如铁路OA的即时通讯--要显示群组的成员,群组的成员是通过网络获取的;
+

@@ -1,0 +1,2 @@
+1,style中定义
+2,清单中引用 --Application

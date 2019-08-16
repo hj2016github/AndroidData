@@ -1,0 +1,23 @@
+﻿A 配置xml
+1 主xml中主要包含tab以及viewpager
+2 fragment的xml;
+
+B准备:fragment的java,fragment用v4包下的,每个都是单例
+viewpager的适配器:FragmentPagerAdapter //这个适配器要传入一个fragmentsupportmanger
+进行管理,估计移动viewpager的时候进行相关的操作;
+
+C主activity继承AppcompActivity,或者继承FragmentActivity
+1,初始化控件
+2,给fragment的list添加fragment;
+3,处理tab的指示;
+3.1找到子控件的集合并添加
+3.2子控件利用循环设置点击的效果:注意settag与gettag
+3.3初始化第一个tab;
+
+D viewpager配置与监听
+1,初始化适配器,注意参数传入是v4包下的getSupportFragmentManager();
+2,适配器中传入list<fragment>
+3,viewpager设置适配器
+4,viewpager进行监听:在方法onPageSelected下:
+4.1循环所有的tab指示可点击,并无颜色;
+4.2当前的不可点击并设置下标的指示颜色;

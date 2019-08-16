@@ -1,0 +1,107 @@
+apply plugin: 'com.android.application'
+apply  plugin: 'com.mob.sdk'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.gasplatform.ygsj.mashgasmonitoring"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    signingConfigs {
+        release {
+            storeFile file("F:\\appkey_DoNotDelete")
+            storePassword "123456"
+            keyAlias "key0"
+            keyPassword "123456"
+            v2SigningEnabled false
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+    MobSDK {
+        appKey "26e990b94b4e8"
+        appSecret "b2d0b7f8c446e76b51ea2259da9ea879"
+        ShareSDK {
+            devInfo {
+                Wechat {
+                    id 1
+                    sortId 1
+                    appId "wx6492c023d4f9d374"
+                    appSecret "8ebfac8d013db1efb3fc82b84433c976"
+//                    userName "gh_afb25ac019c9"
+//                    path "pages/index/index.html?id=1"
+                    bypassApproval true
+                    enable true
+                }
+
+               /* WechatMoments {
+                    id 2
+                    sortId 2
+                    appId "wx6492c023d4f9d374"
+                    appSecret "8ebfac8d013db1efb3fc82b84433c976"
+                    bypassApproval true
+                    enable true
+                }*/
+
+
+                QQ {
+                    id 3
+                    sortId 3
+                    appId "100371282"
+                    appKey "aed9b0303e3ed1e27bae87c33761161d"
+                    shareByAppClient true
+                    bypassApproval false
+                    enable true
+                }
+
+                SinaWeibo {
+                    id 4
+                    sortId 4
+                    appKey "568898243"
+                    appSecret "38a4f8204cc784f81f9f0daaf31e02e3"
+//                    callbackUri "http://www.sharesdk.cn"
+                    shareByAppClient true
+                    enable true
+                }
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        }
+    }
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support:design:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.contrarywind:Android-PickerView:4.1.4'
+    testImplementation 'org.mockito:mockito-core:1.9.5'
+    implementation 'com.github.PhilJay:MPAndroidChart:v3.0.1'
+
+}

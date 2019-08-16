@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/appback"
+    android:orientation="vertical"
+    >
+<!--分三块比率分别是11 130 12-->
+        <LinearLayout
+            android:id="@+id/ll_head"
+
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="11"
+            android:orientation="horizontal">
+
+
+            <android.support.constraint.ConstraintLayout
+                style="@style/main_head"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageButton
+                    android:id="@+id/imgBtn_more"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/more"
+                    app:layout_constraintBottom_toBottomOf="@+id/tv_head"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_head"
+                    android:layout_width="120dp"
+                    android:layout_height="23dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:textColor="#ffffff"
+                    android:textSize="14sp"
+                    android:gravity="center"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.444"
+                    app:layout_constraintStart_toEndOf="@+id/imgBtn_more"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/img_goback"
+                    android:layout_width="32dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="8dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/goback" />
+            </android.support.constraint.ConstraintLayout>
+        </LinearLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager_main"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="130"></android.support.v4.view.ViewPager>
+
+     <LinearLayout
+         android:id="@+id/ll_tab"
+         android:layout_width="match_parent"
+         android:layout_height="0dp"
+         android:layout_weight="12"
+         android:orientation="horizontal">
+
+
+         <android.support.constraint.ConstraintLayout
+             android:id="@+id/cl_tabs"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <ImageButton
+                 android:id="@+id/imgbtn_tab_realtime"
+                 android:layout_width="20dp"
+                 android:layout_height="20dp"
+                 android:layout_marginBottom="3dp"
+                 android:layout_marginEnd="8dp"
+                 android:layout_marginStart="8dp"
+                 android:background="@drawable/btn_realtime"
+                 app:layout_constraintBottom_toTopOf="@+id/tv_tab_realtime"
+                 app:layout_constraintEnd_toEndOf="@+id/tv_tab_realtime"
+                 app:layout_constraintStart_toStartOf="@+id/tv_tab_realtime" />
+
+             <TextView
+                 android:id="@+id/tv_tab_realtime"
+                 android:layout_width="0dp"
+                 android:layout_height="11dp"
+                 android:layout_marginBottom="6dp"
+                 android:gravity="center"
+                 android:text="@string/realtimeData"
+                 android:textColor="@color/white"
+                 android:textSize="8sp"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toStartOf="@+id/tv_tab_alarm"
+                 app:layout_constraintHorizontal_chainStyle="spread"
+                 app:layout_constraintHorizontal_weight="1"
+                 app:layout_constraintStart_toStartOf="parent" />
+
+             <ImageButton
+                 android:id="@+id/imgbtn_tab_alarm"
+                 android:layout_width="20dp"
+                 android:layout_height="20dp"
+                 android:layout_marginBottom="3dp"
+                 android:layout_marginEnd="8dp"
+                 android:layout_marginStart="8dp"
+                 android:background="@drawable/btn_alarm"
+                 app:layout_constraintBottom_toTopOf="@+id/tv_tab_alarm"
+                 app:layout_constraintEnd_toEndOf="@+id/tv_tab_alarm"
+                 app:layout_constraintStart_toStartOf="@+id/tv_tab_alarm" />
+
+             <TextView
+                 android:id="@+id/tv_tab_alarm"
+                 android:layout_width="0dp"
+                 app:layout_constraintHorizontal_weight="1"
+                 android:layout_height="11dp"
+                 android:layout_marginBottom="6dp"
+                 android:layout_marginStart="8dp"
+                 android:gravity="center"
+                 android:text="@string/alarm"
+                 android:textSize="8sp"
+                 android:textColor="@color/white"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toStartOf="@+id/tv_tab_history"
+                 app:layout_constraintStart_toEndOf="@+id/tv_tab_realtime" />
+
+             <ImageButton
+                 android:id="@+id/imgbtn_tab_history"
+                 android:layout_width="20dp"
+                 android:layout_height="20dp"
+                 android:layout_marginBottom="3dp"
+                 android:layout_marginEnd="8dp"
+                 android:layout_marginStart="8dp"
+                 android:background="@drawable/btn_history"
+                 app:layout_constraintBottom_toTopOf="@+id/tv_tab_history"
+                 app:layout_constraintEnd_toEndOf="@+id/tv_tab_history"
+                 app:layout_constraintStart_toStartOf="@+id/tv_tab_history"
+                 />
+
+             <TextView
+                 android:id="@+id/tv_tab_history"
+                 android:layout_width="0dp"
+                 app:layout_constraintHorizontal_weight="1"
+                 android:layout_height="11dp"
+                 android:layout_marginBottom="6dp"
+                 android:gravity="center"
+                 android:textColor="@color/white"
+                 android:text="@string/history"
+                 android:textSize="8sp"
+                 app:layout_constraintBottom_toBottomOf="parent"
+                 app:layout_constraintEnd_toEndOf="parent"
+                 app:layout_constraintStart_toEndOf="@+id/tv_tab_alarm" />
+         </android.support.constraint.ConstraintLayout>
+     </LinearLayout>
+</LinearLayout>

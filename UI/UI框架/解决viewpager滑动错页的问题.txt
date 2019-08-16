@@ -1,0 +1,2 @@
+设置完adpter之后:
+viewpager.setOffscreenPageLimit(3);//保存viewpager的缓存；

@@ -1,0 +1,22 @@
+主要参考:https://www.cnblogs.com/linyanyao/archive/2016/04/06/5358847.html
+先打开企业版,其他版本不行;
+1,先创建web空网站项目,里面只有一个webconfig文件,在里面需要添加<system.web>
+     <system.web>
+            <webServices>
+           <protocols>
+                  <add name="HttpGet"/>
+                  <add name="HttpPost"/>
+            </protocols>
+       </webServices>
+    </system.web>
+让远程可以调用;
+
+2,在project下添加新项-->ASMX服务
+在本例中添加了两个参数,服务端进行求和;
+
+WebService.asmx提供服务部分,WebService.cs负责逻辑部分;
+调用asmx-->调用webservice.cs-->返回给客户端-->xml解析;
+
+3,启动服务,进入调试页面
+将来客户端:
+访问:"主机名/web服务名.asmx"

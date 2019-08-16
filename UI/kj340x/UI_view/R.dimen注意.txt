@@ -1,0 +1,8 @@
+TextView设置R.dimen.text_size的值注意
+
+textView.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimensionPixelSize(R.dimen.text_size));  
+
+
+<dimen name="text_size">18sp</dimen> 
+必须有单位,否则报错; 
+注意：dimens.xml里面的单位会影响转换的。

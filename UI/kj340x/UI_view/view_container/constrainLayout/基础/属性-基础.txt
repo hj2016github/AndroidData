@@ -1,0 +1,79 @@
+﻿当创建约束的时候需要记住以下的一些原则：
+每个View必须至少有两个约束：一个水平方向的一个垂直方向的
+假如不满足上面的原则，XML文件就回报红
+
+可以为ConstraintLayout自身定义最小的尺寸，他会在 ConstraintLayout为WRAP_CONTENT时起作用。 
+● android:minWidth 
+● android:minHeight
+
+
+常用的布局属性放在前面
+类似于相对布局 比相对布局复杂  layout_constraintXXX_toYYYOf
+每个布局都是相对于自身的,XXX自身的出发点,YYY为目的地点(到达对方控件的哪个点)
+属性的值可以是@id/button1另一个控件,也可以是原来parent
+* layout_constraintLeft_toLeftOf 
+* layout_constraintLeft_toRightOf 
+* layout_constraintRight_toLeftOf 
+* layout_constraintRight_toRightOf 
+* layout_constraintTop_toTopOf 
+* layout_constraintTop_toBottomOf 
+* layout_constraintBottom_toTopOf 
+* layout_constraintBottom_toBottomOf 
+* layout_constraintBaseline_toBaselineOf 
+* layout_constraintStart_toEndOf 
+* layout_constraintStart_toStartOf 
+* layout_constraintEnd_toStartOf 
+* layout_constraintEnd_toEndOf
+居中定位比较在代码上比较特殊:
+app:layout_constraintLeft_toLeftOf="parent"
+app:layout_constraintRight_toRightOf="parent"
+有两个相反的力相互拉拽,最后达到平衡点;
+
+margin:
+android:layout_marginStart
+android:layout_marginEnd
+android:layout_marginLeft
+android:layout_marginTop
+android:layout_marginRight
+android:layout_marginBottom
+一般来说start = left right = end;
+主要是为了照顾中东,阿拉伯国家,他们书写习惯是从右向左;
+这时 start=right end = left;
+
+
+控件的宽高有三种方式为其设置： 
+条件:有其他控件约束本本控件,设为宽或高设为0dp则与约束者宽或高相同;
+如果没有其他控件约束,以父布局约束,则会充满父布局;
+* 确定尺寸 
+* WRAP_CONTENT 
+* 0dp，就等于MATCH_CONSTRAINT 
+
+按照比例定制宽高:默认是宽:高  用h表示;
+app:layout_constraintDimensionRatio="2:1"
+* 浮点值，表示宽度和高度之间的比率 （2,0.5） 
+* “width：height”形式的比例 （5:1,1:5）
+ app:layout_constraintDimensionRatio="w,0.8:1" ==高:宽
+
+bias:控件在父布局的位置:默认是0.5
+* layout_constraintHorizontal_bias (0最左边 1最右边) 
+* layout_constraintVertical_bias (0最上边 1 最底边)
+
+
+用以下属性保证依赖的布局gone掉以后自身可以不动,计算的时候width与margin加和计算;
+重点是Gone隐藏掉的控件，会被解析成一个点，并忽略margin
+对其他部件有约束力，但任何margin都将等于零
+个人认为以下属性不需要,gone掉的布局可以用invisible代替;
+* layout_goneMarginStart 
+* layout_goneMarginEnd 
+* layout_goneMarginLeft 
+* layout_goneMarginTop 
+* layout_goneMarginRight 
+* layout_goneMarginBottom
+
+
+
+
+
+
+
+

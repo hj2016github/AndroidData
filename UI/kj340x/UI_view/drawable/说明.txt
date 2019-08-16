@@ -1,0 +1,6 @@
+View直接面向用户
+drawable看不见,附着于view上;从layout对drawable的引用可以看出;
+
+drawable是个抽象类,子类进行实现;最主要有两个方法:1,draw方法 2,onBounds方法:处理矩形圆角;
+
+drawable的xml放在res的drawable文件夹下,在layout中使用的时用src= 或者background=@drawable/xxx进行引用

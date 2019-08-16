@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_chart_base"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.soyikeji.work.work.Chart.ChartBaseActivity">
+
+
+
+    <LinearLayout
+        android:id="@+id/Rl_chart"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@mipmap/main_title1"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/im_return"
+            android:layout_width="0dp"
+            android:layout_weight="0.8"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+
+            android:onClick="img_reture_chartBasic"
+            android:src="@mipmap/xq_03" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_marginTop="1dp"
+            android:id="@+id/textView1"
+            android:textSize="20dp"
+            android:textColor="#ffffff"
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/imageView2"
+            android:text="交流"
+            />
+
+        <ImageView
+            android:id="@+id/img_chart_more"
+            android:layout_width="0dp"
+            android:layout_weight="0.6"
+            android:layout_height="30dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginRight="25dp"
+            android:src="@mipmap/main_activtiy_add_pressed"/>
+    </LinearLayout>
+
+
+    <LinearLaylv_contactlistout
+        android:id="@+id/ll_indicator"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+    </LinearLaylv_contactlistout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_chartBasic"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="9.8"></android.support.v4.view.ViewPager>
+
+    <LinearLayout
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lv_conversationlist"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_conversation"
+                android:layout_width="20dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+
+                android:src="@drawable/chartlist_selector" />
+
+            <TextView
+                android:gravity="center"
+                android:id="@+id/tv_conversation"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+
+                android:text="会话"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lv_grouplist"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_grouplist"
+                android:layout_width="22dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.1"
+                android:layout_marginTop="2dp"
+                android:src="@drawable/grouplist_selector" />
+
+            <TextView
+                android:layout_marginTop="2.5dp"
+                android:gravity="center"
+                android:id="@+id/tv_grouplist"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+                android:text="讨论组"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lv_contactlist"
+            android:gravity="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/img_contact"
+                android:layout_marginTop="2dp"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:background="@drawable/contactlist_selector"
+
+                />
+
+            <TextView
+                android:id="@+id/tv_contact"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+
+                android:text="通讯录"
+                android:gravity="center"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+</LinearLayout>

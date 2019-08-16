@@ -1,0 +1,8 @@
+Barrier
+场景主要应用于语言变化时候的场景,英语换成德语时候,拦截后变化不会影响布局;
+具体见代码图片
+
+
+Group
+Group用于控制多个控件的可见性
+androidvisibility=gone 

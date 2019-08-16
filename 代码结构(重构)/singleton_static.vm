@@ -1,0 +1,26 @@
+#if (${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end 
+#if (${IMPORT_BLOCK} != "")${IMPORT_BLOCK} #end
+#parse("File Header.java")
+
+#if (${VISIBILITY} == "PUBLIC")public #end 
+class ${NAME}
+#if (${SUPERCLASS} != "")extends ${SUPERCLASS} #end 
+#if (${INTERFACES} != "")implements ${INTERFACES} #end { 
+    private static class Holder {
+		 private volatile static  ${NAME} ourInstance = new ${NAME}();
+	}
+    
+    private ${NAME}() {
+        if (Holder.ourInstance != null) {
+            try {
+                throw new IllegalAccessException("The singleton has been instantiated, so don't use illegal reflection constructors");
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+    
+	 #if (${VISIBILITY} == "PUBLIC")public #end static ${NAME} getInstance() {
+        return Holder.ourInstance;
+    }
+}

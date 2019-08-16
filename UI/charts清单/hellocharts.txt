@@ -1,0 +1,45 @@
+0,xml中view的处理:findviewbyId
+<lecho.lib.hellocharts.view.LineChartView
+        android:id="@+id/chart"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+3.2处理chartview的整体效果
+ mChartView.setInteractive(true);//设置图表是可以交互的（拖拽，缩放等效果的前提）
+ mChartView.setZoomType(ZoomType.HORIZONTAL_AND_VERTICAL);//设置缩放方向
+
+
+1,初始化数据;
+PointValue代表坐标,构造中有xy值,与MPAndroidcharts中的Entry类似;
+ArrayList<PointValue> values = = new ArrayList<>();
+values.add(new PointValue(0, 2));
+        values.add(new PointValue(1, 4));
+        values.add(new PointValue(2, 3));
+        values.add(new PointValue(3, 4));
+        values.add(new PointValue(4, 2));
+//或者循环添加;        
+private Map<String, Integer> chartData = new TreeMap<String, Integer>();        
+for (Integer integer : chartData.values()) {
+            values.add(new PointValue(index, integer));
+            index++;
+        }
+
+
+
+2 对曲线处理
+ Line line = new Line(values).setColor(Color.BLUE);//设置曲线的坐标与颜色; 类似于MP的LineDataSet   
+ line.setCubic(false);//设置是平滑的还是直的
+ private ArrayList<Line>  lines = new ArrayList<>();//ArrayList<ILineDataSet> MP的多曲线处理;
+ lines.add(line);//lines因为可能是多条的;
+
+3,对chartview的处理 
+
+LineChartData data = new LineChartData();//类似于MP的LineData
+Axis axisX = new Axis();//x轴
+Axis axisY = new Axis();//y轴
+data.setAxisXBottom(axisX);//设置坐标轴
+data.setAxisYLeft(axisY);
+data.setLines(lines);//x,y的空间下设置lines;
+mChartView.setLineChartData(data);//给图表设置xy的空间
+
+ 
+

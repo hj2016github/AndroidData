@@ -1,0 +1,1 @@
+如果在radiogroup直接settxtcolor不顶用的话,尝试用colorlist进行使用,但在我的项目中不起作用,应该有其他的原因;

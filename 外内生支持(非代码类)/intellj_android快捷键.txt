@@ -1,0 +1,125 @@
+﻿F11:bookmark--new
+ctrl+f12 structure视图--看代码常用
+crtl+j mann 方法注释(我自定义)
+       cann 类注释(我自定义)
+alt+shift+4 //(我自定义)--new 
+shift+f6 //重命名;
+ctrl+shift+u //变量名大小写转换--new;
+ctrl+shift+alt+v 拷贝变量 --new
+ctrl+shift+空格-->补全代码;
+ctrl+shift+回车->括号补全;
+alt+q 方法比较长的时候,不需要拖回到开始,直接显示方法以及参数--new
+ctrl+alt+<--返回上次编辑位置; --new;
+alt+T -->tomcat run (我自定义)-->new
+
+在debug模式下，用alt键单击表达式，就能看到返回值；
+ctrl+shift+v：编辑粘贴板;
+ctrl+alt+f:把方法变量提成类变量;(有时候与微信搜狗快捷键冲突,需要改)
+选择后-->点击Refactor-->copy-->重新建一个类；
+ctrl+shift+T 单元测试——new；
+Ctrl+B 方法变量在哪用（useage）——new；
+ctrl+shift+a --直接调用命令（比如tomcat run，类似于sublime的ctrl+shift+p）
+alt+shift+v --纵向分屏显示 --new
+alt+shift+h --横向分屏显示 --new	
+ctrl+shift+enter --补全括号 --new
+
+
+Alt+1:开闭目录结构
+Alt+2：调出favorite；
+Alt+3：findUseage
+shitf+alt+鼠标左键：多行游标选择---new
+alt+j：同时选择多个同名单词，类似于sublime--new
+
+以下常用:
+Ctrl+Y:删除一行
+Ctrl+D:复制一行 
+Crtl+W:多行选则；
+Ctrl+Alt+L  格式化代码
+Alt+Enter：导入包，强转等，常用
+Ctrl+B ：查看源码
+
+Ctrl+"+":展开方法
+Ctrl+"-"：折起方法；
+Alt+↑向上：移动到上一个方法
+Alt+↓向下：移动到下一个方法--new
+ctrl+shift+→ 返回上一处
+ctrl+shift+← 返回下一处
+
+Alt+←左：上一个窗口
+Alt+→右：下一个窗口
+ctrl+tab:来回切换，相当方便；
+
+Ctrl+Shift+/：注释
+
+Ctrl+P：看参数
+Ctrl+E：查看最近打开过的文件
+Ctrl+Shift+↑：光标所在位置那行代码往上移动
+Ctrl+Shift+↓：光标所在位置那行代码往下移动
+
+F2 或Shift+F2 高亮错误或警告快速定位
+Ctrl＋[或]大括号：可以跳到大括号的开头结尾
+
+
+自己生成代码的快捷键：
+Ctrl+Alt+X：自定义新建activity;
+Ctrl +J: fbc:findviebyID ——
+	 Toast:
+	 visiblity
+	ifn:非空
+	ife:
+	ifi:
+	psfi
+	psfs:
+Logt,logi,logd,loge的模板使用
+Ctrl+Alt+T:选中包围，与Crtl+W配合使用；
+Ctrl+Alt+V：生成全局变量
+Ctrl+Alt+F: 生成局部变量；
+Ctrl+Alt+M:把代码块生成为方法；
+Ctrl+O:重写父类方法；
+Ctrl+F
+Ctrl+R:替换
+
+查看快捷键
+双击shift；
+Ctrl+Shift+F：查找字段所在文件；
+Ctrl+F12：类或者文件结构 --new
+alt+1：整个目录结构
+
+不常用：
+Ctrl+N查找类；
+Ctrl+Shift+N:查找文件；双击shift可以代替；
+
+接口与子类常用：
+放到接口的方法上：Ctrl+Alt+B：直接查看实现的方法；--new
+Ctrl+H：查看层次
+Ctrl+U:查看父类，源代码
+Ctrl+Alt+H:查继承关系
+
+Ctrl+Shift+I:查看方法，不影响
+
+Ctrl+F12:查看类的结构，常用--new；
+Ctrl+Shift+O：自定义的直接用sublime打开文件进行编辑；--new
+
+调试代码
+F7,F8:单步，单步跳入方法
+
+自动补全
+Tab or Enter
+
+
+Ctrl + Tab：选项卡之间的切换；--new
+win+Tab
+Ctrl+F4：关闭当前选项卡
+alt+c:关闭当前选项卡--new,自定义
+
+不常用：
+Alt + 7：调出类结构；
+Alt + 6：调出安卓日志；
+
+书签：
+F11 Toggle bookmark
+Ctrl + F11 Toggle bookmark with mnemonic（魔兽组队编号）
+Ctrl + #[0-9] Go to numbered bookmark（组队切换）
+
+调试
+调试的时候 alt+鼠标左键 就直接可以观察到值;

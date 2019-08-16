@@ -1,0 +1,5 @@
+//创建缓存:只有服务器有缓存才能保存缓存cacheContrl允许保存缓存时候;
+int maxCaCheSize = 10 10241024;
+Cache cache = new Cache(new File("yourPath"),maxCaCheSize);
+OkHttpClient client1 = new OkHttpClient().newBuilder().cache(cache).build();
+client1.newCall(request);

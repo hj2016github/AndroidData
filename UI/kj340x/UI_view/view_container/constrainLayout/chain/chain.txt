@@ -1,0 +1,27 @@
+chain个人认为是取代linear用的,里面有加权链可以设置比率;
+
+如果在指定的连接上有margin,他们将被参考。在传递链的时候,将扣除mragin来分配空间。
+
+创建链条（Creating a chain）
+如果一组小部件通过双向连接，则将其视为链条。
+操作:shift选中,或者鼠标左键画范围选中,右键就可以;
+
+
+链条头（Chain heads）
+链条由在链的第一个元素（链的“头”）上设置的属性控制
+
+layout_constraintHorizontal_chainStyle
+* spreadchain - 元素将被展开（默认样式） 
+* weightchain - 在spread模式下，如果某些小部件设置为MATCH_CONSTRAINT，则它们将拆分可用空间 
+
+在chain的MATCH_CONSTRAINT中使用添加layout_constraintHorizontal_weight属性,则可以形成加权链;
+将控制分布在空间的元素如何使用MATCH_CONSTRAINT;
+
+* spread_inside_chain - 类似，但链的端点将不会扩展,空白在内部扩展 
+* packed - 链的元素将被打包在一起。 孩子的水平或垂直偏差属性将影响包装元素的定位
+
+
+
+
+
+

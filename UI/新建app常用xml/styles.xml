@@ -1,0 +1,88 @@
+<resources>
+
+    <style name="dialog" parent="@android:style/Theme.Dialog">
+        <!--去掉边框-->
+        <item name="android:windowFrame">@null</item>
+        <!--悬浮-->
+        <item name="android:windowIsFloating">true</item>
+        <!--半透明-->
+        <item name="android:windowIsTranslucent">false</item>
+        <!--不需要标题-->
+        <item name="android:windowNoTitle">true</item>
+        <!--背景透明-->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!--允许模糊-->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!--全屏幕-->
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <!-- Base application theme. -->
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <!--<item name="android:windowNoTitle">true</item>-->
+    </style>
+
+    <style name="EditTextTheme" parent="Theme.AppCompat.Light">
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+    </style>
+
+    <style name="AnimationPreview">
+        <item name="android:windowEnterAnimation">@anim/fade_in</item>
+        <item name="android:windowExitAnimation">@anim/fade_out</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--v7 AlertDialog修改样式-->
+    <style name="appalertdialog" parent="Base.V7.Theme.AppCompat.Dialog">
+        <item name="android:colorBackground">#FE003B85</item><!--背景颜色-->
+        <item name="android:textColor">#E3E3E3</item>
+       <!--  <item name="android:windowTitleStyle">@style/appalertdialogwindowTitleStyle</item>-->
+       <!-- <item name="android:windowAnimationStyle">@style/appalertdialoganimation</item>-->
+        <!--<item name="buttonStyle">@style/appalertdialogbuttonstyle </item>-->
+    </style>
+   <!-- <style name="appalertdialogwindowTitletext" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textColor">#ffffff</item>
+    </style>-->
+    <!--标题样式-->
+   <!-- <style name="appalertdialogwindowTitleStyle" parent="Base.DialogWindowTitle.AppCompat">
+        <item name="android:textAppearance">@style/appalertdialogwindowTitletext</item>
+    </style>-->
+    <!--标题字体颜色-->
+   <!-- <style name="appalertdialogwindowTitletext" parent="Base.TextAppearance.AppCompat.Title">
+        <item name="android:textColor">#ffffff</item>
+    </style>-->
+
+    <!--动画效果-->
+    <!--<style name="appalertdialoganimation" parent="android:Animation">-->
+        <!--<item name="android:windowEnterAnimation">@anim/abc_popup_enter</item>-->
+        <!--<item name="android:windowExitAnimation">@anim/abc_popup_exit</item>-->
+    <!--</style>-->
+    <!--按钮样式-->
+    <!--<style name="appalertdialogbuttonstyle" parent="android:Widget">
+        <item name="android:background">@drawable/abc_btn_default_mtrl_shape</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceButton</item>
+        <item name="android:minHeight">48dip</item>
+        <item name="android:minWidth">88dip</item>
+        <item name="android:focusable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:gravity">center_vertical|center_horizontal</item>
+    </style>-->
+
+
+</resources>

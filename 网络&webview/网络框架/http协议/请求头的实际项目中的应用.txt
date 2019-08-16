@@ -1,0 +1,45 @@
+如何绕过请求头; 
+URL realUrl_index = new URL(CatchedUrl.index_url);//实时首页；
+URL catchedUrl = new URL(url);
+URLConnection conn_index = realUrl_index.openConnection();
+URLConnection conn = catchedUrl.openConnection();
+
+String sessionvalue = conn_index.getHeaderField("Set-Cookie");
+String[] sessionId = sessionvalue.split(";");//拿到要抓取的sessionId；实时首页的首页
+conn.setRequestProperty("Cookie", sessionId[0]);//必须先访问首页才能拿到数据，这里设置访问过首页，最终绕过限制，可以拿到数据；
+
+
+判断网页的来源:使用手机还是pc;
+public boolean JudgeIsMoblie(HttpServletRequest request) {
+        boolean isMoblie = false;
+        String[] mobileAgents = { "iphone", "android", "phone", "mobile", "wap", "netfront", "java", "opera mobi",
+                "opera mini", "ucweb", "windows ce", "symbian", "series", "webos", "sony", "blackberry", "dopod",
+                "nokia", "samsung", "palmsource", "xda", "pieplus", "meizu", "midp", "cldc", "motorola", "foma",
+                "docomo", "up.browser", "up.link", "blazer", "helio", "hosin", "huawei", "novarra", "coolpad", "webos",
+                "techfaith", "palmsource", "alcatel", "amoi", "ktouch", "nexian", "ericsson", "philips", "sagem",
+                "wellcom", "bunjalloo", "maui", "smartphone", "iemobile", "spice", "bird", "zte-", "longcos",
+                "pantech", "gionee", "portalmmm", "jig browser", "hiptop", "benq", "haier", "^lct", "320x320",
+                "240x320", "176x220", "w3c ", "acs-", "alav", "alca", "amoi", "audi", "avan", "benq", "bird", "blac",
+                "blaz", "brew", "cell", "cldc", "cmd-", "dang", "doco", "eric", "hipt", "inno", "ipaq", "java", "jigs",
+                "kddi", "keji", "leno", "lg-c", "lg-d", "lg-g", "lge-", "maui", "maxo", "midp", "mits", "mmef", "mobi",
+                "mot-", "moto", "mwbp", "nec-", "newt", "noki", "oper", "palm", "pana", "pant", "phil", "play", "port",
+                "prox", "qwap", "sage", "sams", "sany", "sch-", "sec-", "send", "seri", "sgh-", "shar", "sie-", "siem",
+                "smal", "smar", "sony", "sph-", "symb", "t-mo", "teli", "tim-", "tosh", "tsm-", "upg1", "upsi", "vk-v",
+                "voda", "wap-", "wapa", "wapi", "wapp", "wapr", "webc", "winw", "winw", "xda", "xda-",
+                "Googlebot-Mobile" };
+        if (request.getHeader("User-Agent") != null) {
+            for (String mobileAgent : mobileAgents) {
+                if (request.getHeader("User-Agent").toLowerCase().indexOf(mobileAgent) >= 0) {
+                    isMoblie = true;
+                    break;
+                }
+            }
+        }
+        return isMoblie;
+    }
+
+转发的过程：
+客户端浏览器发送请求，web服务器接收请求再进行在内部跳转，什么意思呢，也就是说，跳转只能在自己所在的web容器下的url，而不能跳转出去其他的url。
+重定向的过程：
+客户端发送请求，web服务器接收该请求后发送302状态码响应并且发送新的一个地址（location）给客户端浏览器，客户端接收到302则自动再发送一个新的请求，而这个请求就是新的location，既然是客户端发送的一个请求，就对web容器的request没关系了，它可以任意跳转到所有location。
+其实它们最本质的区别就是，转发只需要一次的请求，仅仅是一次客户端的request，而重定向则需要两次请求，一次是客户端request，服务器响应后返回302给客户端浏览器，再由客户端浏览器再发一次请求。

@@ -1,0 +1,36 @@
+app包中的fragment和v4包中的fragment的使用的区别
+
+
+1、尽量不要用app包中的fragment，因为这个是在3.0之后才有的，支持的版本太高，在低版本中是是用不了的
+2、android.support.v4.app.Fragment：可以兼容到1.6的版本，
+
+
+3、关于这两个fragment使用<fragment>标签的问题
+ （1）app.fragment和v4.fragment都是可以使用<fragment>标签的
+      只是在在使用的时候如果是app.fragment则没有什么特殊的地方继承Activity即可。
+
+
+ （2）当v4.fragment使用<fragment>标签的时候就要特别注意了：
+当这个Activity的布局中有<fragment>标签的时候，这个Activity必须继承FragmentActivity，否则就会报错
+
+
+
+08-27 08:25:04.946: E/AndroidRuntime(9839): Caused by: java.lang.ClassCastException: com.example.android_fragment_bottom.fragments.TopBarFragment cannot be cast to android.app.Fragment
+
+
+
+此时如果不卜继成FragmentActivity的话 编译系统会把<fragment>认为是app包中的Fragment来处理。但是此时我们导入的是v4包中的Fragment
+Android官方文档中的Fragment的例子就是以app包中的Fragment来讲解的。
+
+
+（3）app包中关于Fragment的类和方法在V4包中都是有相应的对应的
+
+这两个包下的FragmentManager获取方式有点区别，所以大家在运用的过程中，一定要注意自己的导的包
+Fragmentmanager  fragmentManager=getFragmentManager();
+
+v-4包的FragmentManager用：
+FragmentManager   fragmentManager=getSupportFragmentManager()获取;
+
+注意：
+有时在使用getSupportFragmentManager()时，发现已经添加了v-4包支持，但是依旧找不到getSupportFragmentManager()，
+此时要注意是否是在Activity中使用，因为Activity中并没有此方法的定义，必须是继承FragmentActivity或者AppCompatActivity，然后使用。

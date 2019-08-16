@@ -1,0 +1,13 @@
+0,有几个地址比较重要:
+0.1 namespace命名空间:服务器制定;
+0.2 方法名:服务端的方法;
+0.3 soapAction= 命名空间+方法名,最后请求的时候要使用;
+0.4 请求服务的地址:transUrl:xx.asmx,asmx为.net的服务;
+1,引入包加入lib,addpath;
+2,创建SoapObject类,传递namespace, method两个参数,相当于信;
+3,SoapSerializationEnvelope==信封;需要设置一堆参数;
+4,把信装入信封:envelope.setOutputSoapObject(rpc);
+5,创建邮局 HttpTransportSE transport = new HttpTransportSE(transUrl);//transUrl为邮寄地址;
+6,发信transport.call(null, envelope);//第一个参数为soapAction,第二个有信的信封;
+7,回信:SoapObject response = (SoapObject) envelope.bodyIn;
+最后子线程发给主线程;

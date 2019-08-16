@@ -1,0 +1,45 @@
+ConstraintSet 将记住我们在 XML 文件里实现的所有的 constraints
+private ConstraintSet applyConstraintSet = new ConstraintSet();
+private ConstraintSet resetConstraintSet = new ConstraintSet();
+
+ resetConstraintSet.clone(constraintLayout);
+ applyConstraintSet.clone(constraintLayout);
+
+//compile 'com.android.support:transition:25.1.0'---gradle
+TransitionManager.beginDelayedTransition(constraintLayout);
+ applyConstraintSet.setMargin(R.id.button1,ConstraintSet.START,8);
+ //SetMargin() 方法将使用三个参数(viewId, anchor, margin)
+ applyConstraintSet.applyTo(constraintLayout);
+ applyConstraintSet.clear(R.id.button1);//清除
+applyConstraintSet.applyTo(constraintLayout);//执行
+
+ TransitionManager.beginDelayedTransition(constraintLayout);//开始动画
+ applyConstraintSet.setMargin(R.id.button3,ConstraintSet.END,0);//设置边距
+ applyConstraintSet.centerHorizontally(R.id.button1, R.id.main);//平移到中心,第二个参数是父容器
+ 
+ applyConstraintSet.constrainWidth(R.id.button1,600);//变动宽高;
+ applyConstraintSet.setVisibility(R.id.button2,ConstraintSet.GONE);
+
+applyConstraintSet.connect(R.id.button1,ConstraintSet.LEFT,R.id.main,ConstraintSet.LEFT,0);
+参数 1,本身
+2,被锚定的边==本身==button1
+3,锚定控件,此为父控件;
+4,锚定控件的边;
+5,margin
+
+// 形成Chain between button 1 and button 2
+applyConstraintSet.connect(R.id.button2, ConstraintSet.LEFT, R.id.button1, ConstraintSet.RIGHT, 0);
+applyConstraintSet.connect(R.id.button1, ConstraintSet.RIGHT, R.id.button2, ConstraintSet.LEFT, 0);
+
+applyConstraintSet.createHorizontalChain(R.id.button1,
+        R.id.button3,
+        new int[]{R.id.button1, R.id.button3},
+        null, ConstraintWidget.CHAIN_PACKED);
+参数:
+第一个：chain头部 view 的 id;
+第二个：chain 里尾部 view 的 id。
+第三个：int 数组，把头部和尾部 view 的 id 放入 int 数组
+第四个：float 数组，如果我们需要权重的 chaining 的话它可以给我们权重，否则的话为空。
+第五个：chaining 的风格，类似 CHAIN_SPREAD
+
+applyConstraintSet.setHorizontalBias(R.id.button1, .1f);

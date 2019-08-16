@@ -1,0 +1,71 @@
+功能实现:https://jitpack.io/com/github/PhilJay/MPAndroidChart/v3.0.0/javadoc/(英文文档)
+API查询:
+https://jitpack.io/com/github/PhilJay/MPAndroidChart/v2.2.5/javadoc/
+
+功能实现-->1,Getting Started
+
+view:
+0,先在xml上写布局
+ <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/seekBar1" />
+findviewbyId
+
+1,对chartview的整体处理(交互) //见封装的方法
+具体实例见:https://github.com/PhilJay/MPAndroidChart/wiki/Interaction-with-the-Chart;
+查询:https://jitpack.io/com/github/PhilJay/MPAndroidChart/v3.0.0/javadoc/-->LineChart这个类;
+
+分为各种监听
+缩放
+设置背景色
+点击后的弹出框
+设置X/Y轴的警戒线
+显示的动画
+图例
+x/y轴的控制,这点跟hello有区别;
+
+2,设置数据源 //单独走方法;
+https://jitpack.io/com/github/PhilJay/MPAndroidChart/v3.0.0/javadoc/--->看Entry这个类;
+Entry代表xy的坐标,有三个参数;前两个是坐标的值,后一个是坐标长什么样==样式 //与Hello中的PointValue类似
+ ArrayList<Entry> values = new ArrayList<Entry>();//代表曲线的所有的值;
+ //其中count是多少个坐标,range是y轴值的范围;
+for (int i = 0; i < count; i++) {
+            float val = (float) (Math.random() * range) + 3;
+            values.add(new Entry(i, val, getResources().getDrawable(R.drawable.star)));//坐标,icon样式;
+        }
+或者
+YourData[] dataObjects = ...;
+List<Entry> entries = new ArrayList<Entry>();
+for (YourData data : dataObjects) {
+    // turn your data into Entry objects
+    entries.add(new Entry(data.getValueX(), data.getValueY())); 
+} 
+
+
+2,对曲线的处理 //见封装;
+LineDataSet代表曲线;//在构造中传递value即可;
+其中曲线可以设置
+曲线样式 曲线颜色  坐标颜色 坐标半径 坐标空心否 曲线宽度 坐标字体大小 曲线下填充
+图例控制
+
+
+
+3,整体逻辑
+1Entry代表xy的坐标,有三个参数;前两个是坐标的值,后一个是坐标长什么样,值已经初始化好;
+ArrayList<Entry> values = new ArrayList<Entry>();//代表曲线的所有的值;
+
+2对曲线的属性进行设置;
+LineDataSet myLineDataSet代表曲线;//在构造中传递value即可;
+
+3设置多条曲线		
+ ArrayList<ILineDataSet> dataSets = new ArrayList<ILineDataSet>();
+ dataSets.add(myLineDataSet); // add the datasets,myLineDataSet就是一条曲线;
+
+4 LineData要给view设置;
+dataSets集合给了LineData(LineData类似于hello的LineChartData)
+  LineData data = new LineData(dataSets);//LineData上设置多条曲线
+  
+  //view上设置data
+  mChart.setData(data);

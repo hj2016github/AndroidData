@@ -1,0 +1,4 @@
+ 解决Android编译出现问题：AAPT: error: resource string/xxx (aka xxx:string/xxx) not found.
+原因:默认的string.xml中没有对应翻译的资源
+填上即可
+比如中文xml有,英文xml没有的情况
